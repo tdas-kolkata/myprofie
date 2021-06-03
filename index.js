@@ -8,8 +8,10 @@ const bodyParser = require("body-parser");
 
 var app = express();
 
+app.use(express.static('public'));
+
 app.get('/',(req,res)=>{
-	res.send('Hello World');
+	res.render('./public/index.html');
 })
 
 app.listen(PORT,()=>{
