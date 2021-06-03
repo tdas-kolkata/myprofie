@@ -17,15 +17,15 @@
 
 #qualificationContainer{
 	animation: slideFromRight 1500ms ease-in-out ;
-	animation-delay: 100ms;
 }
-#experienceContainer{
+/* #experienceContainer{
 	animation: slideFromLeft 1500ms ease-in-out ;
 }
-
-#maincontainer{
-	
-}
+ */
+/* #sketch_div{
+	margin-top: 50px;
+	margin-left: 60px;
+} */
 
 
 @keyframes slideFromLeft {
