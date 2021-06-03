@@ -1,0 +1,76 @@
+#introCard{
+	position:relative;
+	animation: slideFromLeft 1500ms ease ;
+}
+
+#skillContainer{
+	animation: slideFromLeft 1500ms ease-in-out ;
+}
+
+#navBar{
+	animation: slideFromTop 1000ms ease-in-out ;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+	color: #273AF0;
+}
+
+#qualificationContainer{
+	animation: slideFromRight 1500ms ease-in-out ;
+	animation-delay: 100ms;
+}
+#experienceContainer{
+	animation: slideFromLeft 1500ms ease-in-out ;
+}
+
+
+@keyframes slideFromLeft {
+	0%{
+		left: -1300px;
+	}
+	50%{
+		left: 150px;
+	}
+	100%{
+		left: 0px;
+	}
+	
+}
+
+@keyframes slideFromRight {
+	0%{
+		right: -1300px;
+	}
+	60%{
+		right: 150px;
+	}
+	100%{
+		right: 0px;
+	}
+	
+}
+
+@keyframes slideFromTop {
+	0%{
+		top: -100px;
+	}
+	100%{
+		top: 0px;
+	}
+	
+}
+
+
+.contentOuter{
+	position: relative;
+	opacity: 0.9;
+}
+.contentInner{
+	position: absolute;
+	top: 0px;
+	/* left: 20px; */
+	color: white;
+}
+
+
+
