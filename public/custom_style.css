@@ -23,6 +23,10 @@
 	animation: slideFromLeft 1500ms ease-in-out ;
 }
 
+#maincontainer{
+	
+}
+
 
 @keyframes slideFromLeft {
 	0%{
