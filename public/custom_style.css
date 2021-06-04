@@ -1,4 +1,4 @@
-#introCard{
+/* #introCard{
 	position:relative;
 	animation: slideFromRight 2000ms ease;
 }
@@ -10,7 +10,7 @@
 #navBar{
 	animation: slideFromTop 1000ms linear ;
 }
-
+ */
 .navbar-light .navbar-nav .nav-link:hover{
 	color: #273AF0;
 }
