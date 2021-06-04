@@ -1,6 +1,6 @@
 #introCard{
 	position:relative;
-	animation: slideFromLeft 2000ms ease ;
+	animation: slideFromRight 2000ms ease ;
 }
 
 #skillContainer{
@@ -15,9 +15,6 @@
 	color: #273AF0;
 }
 
-#qualificationContainer{
-	animation: slideFromRight 1500ms ease-in-out ;
-}
 /* #experienceContainer{
 	animation: slideFromLeft 1500ms ease-in-out ;
 }
@@ -30,10 +27,7 @@
 
 @keyframes slideFromLeft {
 	0%{
-		left: -1300px;
-	}
-	50%{
-		left: 150px;
+		left: -1200px;
 	}
 	100%{
 		left: 0px;
@@ -44,9 +38,6 @@
 @keyframes slideFromRight {
 	0%{
 		right: -1300px;
-	}
-	60%{
-		right: 150px;
 	}
 	100%{
 		right: 0px;
