@@ -1,10 +1,10 @@
 #introCard{
 	position:relative;
-	animation: slideFromLeft 2000ms ease ;
+	animation: slideFromLeft 3000ms ease ;
 }
 
 #skillContainer{
-	animation: slideFromLeft 2000ms ease-in-out ;
+	animation: slideFromLeft 3000ms ease-in-out ;
 }
 
 #navBar{
