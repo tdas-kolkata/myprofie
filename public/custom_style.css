@@ -1,14 +1,14 @@
 #introCard{
 	position:relative;
-	animation: slideFromLeft 3000ms ease ;
+	animation: slideFromLeft 2000ms ease ;
 }
 
 #skillContainer{
-	animation: slideFromLeft 3000ms ease-in-out ;
+	animation: slideFromLeft 2000ms ease ;
 }
 
 #navBar{
-	animation: slideFromTop 1000ms ease-in-out ;
+	animation: slideFromTop 1000ms ease ;
 }
 
 .navbar-light .navbar-nav .nav-link:hover{
