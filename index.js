@@ -1,6 +1,7 @@
 "use strict";
 
 const express = require("express");
+var cors = require('cors')
 const PORT = process.env.PORT || 8000;
 const path = require("path");
 const bodyParser = require("body-parser");
@@ -9,25 +10,36 @@ const https = require('https');
 
 var app = express();
 
+app.use(cors());
 app.use(express.static('public'));
 
 app.get('/details',(req,res)=>{
+	let date = req.query.date;
+	let pincode = req.query.pincode;
 	let total_data = '';
-	https.get("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=711101&date=05-06-2021",(data_res)=>{
+	https.get(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${date}`,(data_res)=>{
 		// console.log(data_res.statusCode);
 		// console.log(data_res.headers);
 		data_res.on('data',data_chunk=>{
 			total_data = total_data + data_chunk;
 		});
 		data_res.on('end',()=>{
+			// console.log(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${date}`,res.statusCode);
 			res.json(JSON.parse(total_data));
+		});
+		data_res.on('error',(e)=>{
+			console.log(e);
 		});
 	});
 	// res.json(pay_load);
 })
 
-app.get('/',(req,res)=>{
-	res.render('./public/index.html');
+app.get('/vaccineInfo',(req,res)=>{
+	res.status(200).sendFile(path.join(__dirname, "/public/vaccine.html"))
+});
+
+app.get('/home',(req,res)=>{
+	res.status(200).sendFile(path.join(__dirname, "/public/index.html"))
 })
 
 
