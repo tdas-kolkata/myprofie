@@ -35,6 +35,10 @@ app.get('/vaccine_details',(req,res)=>{
 	// res.json(pay_load);
 })
 
+app.get('/ping',(req,res)=>{
+	res.json({"msg": "server alive"});
+})
+
 app.get('/vaccineInfo',(req,res)=>{
 	res.status(200).sendFile(path.join(__dirname, "/public/vaccine.html"))
 });
