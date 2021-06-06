@@ -14,28 +14,29 @@ var app = express();
 
 app.use(express.static('public'));
 
-app.get('/vaccine_details',(req,res)=>{
-	let date = req.query.date;
-	let pincode = req.query.pincode;
-	let total_data = '';
-	https.get(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${date}`,(data_res)=>{
-		// console.log(data_res.statusCode);
-		// console.log(data_res.headers);
-		data_res.on('data',data_chunk=>{
-			total_data = total_data + data_chunk;
-			console.log(data_chunk);
-		});
-		data_res.on('end',()=>{
-			console.log(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${date}`,res.statusCode);
-			console.log(total_data);
-			res.status(200).json(JSON.parse(total_data));
-		});
-		data_res.on('error',(e)=>{
-			console.log(e);
-		});
-	});
-	// res.json(pay_load);
-})
+//commented out as GOI is not allowing masking
+// app.get('/vaccine_details',(req,res)=>{
+// 	let date = req.query.date;
+// 	let pincode = req.query.pincode;
+// 	let total_data = '';
+// 	https.get(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${date}`,(data_res)=>{
+// 		// console.log(data_res.statusCode);
+// 		// console.log(data_res.headers);
+// 		data_res.on('data',data_chunk=>{
+// 			total_data = total_data + data_chunk;
+// 			console.log(data_chunk);
+// 		});
+// 		data_res.on('end',()=>{
+// 			console.log(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${date}`,res.statusCode);
+// 			console.log(total_data);
+// 			res.status(200).json(JSON.parse(total_data));
+// 		});
+// 		data_res.on('error',(e)=>{
+// 			console.log(e);
+// 		});
+// 	});
+// 	// res.json(pay_load);
+// })
 
 app.get('/ping',(req,res)=>{
 	res.status(200).json({"msg": "server alive"});
