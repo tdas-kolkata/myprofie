@@ -26,7 +26,7 @@ app.get('/vaccine_details',(req,res)=>{
 		});
 		data_res.on('end',()=>{
 			console.log(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${date}`,res.statusCode);
-			res.send(200).json(JSON.parse(total_data));
+			res.status(200).json(JSON.parse(total_data));
 		});
 		data_res.on('error',(e)=>{
 			console.log(e);
