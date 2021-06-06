@@ -10,10 +10,11 @@ const https = require('https');
 
 var app = express();
 
-app.use(cors());
+// app.use(cors()); # cors has been disabled to prevent cross origin requests
+
 app.use(express.static('public'));
 
-app.get('/details',(req,res)=>{
+app.get('/vaccine_details',(req,res)=>{
 	let date = req.query.date;
 	let pincode = req.query.pincode;
 	let total_data = '';

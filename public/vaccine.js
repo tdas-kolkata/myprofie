@@ -4,9 +4,12 @@ const openInNewWindow = function(url){
 const getVaccineData = async function (){
 	let pincode = document.getElementById("pinCode").value;
 	let date = document.getElementById("visitDate").value.split('-');
+	let a = document.URL.split('/');
 	date_str = (date[2]+'-'+date[1]+'-'+date[0]).toString();
 	// console.log(date_str);
-	let res = await fetch(`http://localhost:8000/details?pincode=${pincode}&date=${date_str}`);
+	let home_url = a[0]+'//'+ a[2];
+	console.log(home_url);
+	let res = await fetch(`${home_url}/vaccine_details?pincode=${pincode}&date=${date_str}`);
 	// console.log(res);
 	let vaccineData = await res.json();
 	// console.log(vaccineData);
