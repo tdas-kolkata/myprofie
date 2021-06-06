@@ -36,7 +36,7 @@ app.get('/vaccine_details',(req,res)=>{
 })
 
 app.get('/ping',(req,res)=>{
-	res.json({"msg": "server alive"});
+	res.status(200).json({"msg": "server alive"});
 })
 
 app.get('/vaccineInfo',(req,res)=>{
