@@ -1,66 +1,67 @@
-/* #introCard{
-	position:relative;
+#introCard {
+	position: relative;
 	animation: slideFromRight 2000ms ease;
 }
 
-#skillContainer{
+#skillContainer {
 	animation: slideFromLeft 2000ms ease;
 }
 
-#navBar{
-	animation: slideFromTop 1000ms linear ;
+#navBar {
+	animation: slideFromTop 1000ms linear;
 }
- */
-.navbar-light .navbar-nav .nav-link:hover{
+
+.navbar-light .navbar-nav .nav-link:hover {
 	color: #273AF0;
 }
 
-/* #experienceContainer{
-	animation: slideFromLeft 1500ms ease-in-out ;
+#maincontainer {
+	position: relative;
+	top: 100px;
 }
- */
-/* #sketch_div{
-	margin-top: 50px;
-	margin-left: 60px;
-} */
+
 
 
 @keyframes slideFromLeft {
-	0%{
+	0% {
 		left: -500px;
 	}
-	100%{
+
+	100% {
 		left: 0px;
 	}
-	
+
 }
 
 @keyframes slideFromRight {
-	0%{
+	0% {
 		right: -500px;
 	}
-	100%{
+
+	100% {
 		right: 0px;
 	}
-	
+
 }
 
 @keyframes slideFromTop {
-	0%{
+	0% {
 		top: -100px;
 	}
-	100%{
+
+	100% {
 		top: 0px;
 	}
-	
+
 }
 
 
-.contentOuter{
+.contentOuter {
 	position: relative;
 	opacity: 0.9;
 }
-.contentInner{
+
+.contentInner {
 	position: absolute;
 	top: 0px;
 	/* left: 20px; */
@@ -68,4 +69,69 @@
 }
 
 
+.flip-card-container {
+	perspective: 1000px;
+	background: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 200px;
+	height: 300px;
+	border-radius: 10px;
+}
 
+.flip-card-inner {
+	background: transparent;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform-style: preserve-3d;
+	transition: transform 1s;
+	border-radius: 10px;
+}
+
+.flip-card-container:hover .flip-card-inner {
+	transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: top;
+	border-radius: 10px;
+	backface-visibility: hidden;
+	padding: 20px;
+}
+
+.flip-card-front {
+	width: 100%;
+	height: 100%;
+}
+
+.flip-card-back {
+	width: 100%;
+	height: 100%;
+	transform: rotateY(180deg);
+}
+
+#hello_tamal {
+	animation: typing 2s steps(15) infinite alternate;
+	animation-delay: 1s;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+@keyframes typing {
+	0% {
+		width: 0ch;
+		border-right: 1px solid blue;
+	}
+
+	100% {
+		width: 15ch;
+		border-right: 1px solid blue
+	}
+}
