@@ -35,8 +35,13 @@ async function getPool(){
 };
 
 async function getData(){
-    var data = await connectionPool.query('SELECT * FROM PUBLIC.TODOLIST;');
-    return data;
+    try{
+        var data = await connectionPool.query('SELECT * FROM PUBLIC.TODOLIST;');
+        return data;
+    }
+    catch(err){
+        return {error:err};
+    }
 }
 
 module.exports = {createPool,getPool,getData}
