@@ -1,59 +1,45 @@
-const {Pool} = require('pg');
-var connectionPool = null;
+const {Client} = require('pg');
 
-/**
- * Documentation
- * 
- * You can call this synchronous function before you start your express server
- * @param {string} connectionString 
- * @returns {boolean} isDatabaseConnectionCreated
- */
-function createPool(connectionString){
-    const pool_config = {
-        connectionString:connectionString,
-        connectionTimeoutMillis: 10000,
-        idleTimeoutMillis: 10000,
-        max: 10,
-    }
-    //create new instance of the pool object
+// const client = new Client("postgres://postgres:postgres@localhost:5433/Market");
+
+// client
+//   .connect()
+//   .then(() => console.log('connected'))
+//   .catch(err => console.error('connection error', err.stack));
+
+// client
+// .query('SELECT * FROM PUBLIC.TODOLIST;')
+// .then(res=>{console.log(res);})
+// .catch(err=>{console.log(err);})
+// .finally(()=>{client.end();})
+
+async function getData(connectionString,sql){
+    // let isConnected = false;
+    // let client = new Client(connectionString);
+    // client.connect().then(()=>{isConnected=true;}).catch(err=>console.log(err));
+    // if(isConnected){
+    //     return client;
+    // }
+    // else{
+    //     return null;
+    // }
+    let data = null;
+    let client = new Client(connectionString);
     try{
-        connectionPool = new Pool(pool_config);
-        return true;
-    }
-    catch(err){
-        console.log(`database connection not established : ${err}`);
-        return false;
-    }
-};
-
-/**
- * @returns the connection pool object that was created
- */
-async function getPool(){
-    return connectionPool;
-};
-
-async function getData(sql){
-    try{
-        console.log(connectionPool);
-        console.log(sql);
-        var data = await connectionPool.query(sql)
+        await client.connect();
+        data = await client.query(sql)
+        client.end();
         return data;
     }
-    catch(err){
-        return {error:err};
+    catch(e){
+        return e;
     }
-}
+};
 
-module.exports = {createPool,getPool,getData}
+module.exports = {getData};
 
-// unit testing code
 // async function test(){
-//     var a = createPool(process.env.DATABASE_URL);
-//     console.log(process.env.DATABASE_URL);
-//     // console.log(a);
-//     // const data = await getData('SELECT * FROM PUBLIC.TODOLIST');
-//     // console.log(data.rows);
-// };
+//     let {rows} = await getData("postgres://postgres:postgres@localhost:5433/Market",'SELECT * FROM PUBLIC.TODOLIST;')
+//     console.log(rows);
+// }
 // test();
-
