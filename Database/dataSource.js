@@ -23,6 +23,7 @@ async function getData(connectionString,sql){
     // else{
     //     return null;
     // }
+    console.log(connectionString);
     let data = null;
     let client = new Client(connectionString);
     try{
