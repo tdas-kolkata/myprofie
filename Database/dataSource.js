@@ -1,5 +1,4 @@
 const {Pool} = require('pg');
-
 var connectionPool = null;
 
 /**
@@ -34,9 +33,11 @@ async function getPool(){
     return connectionPool;
 };
 
-async function getData(){
+async function getData(sql){
     try{
-        var data = await connectionPool.query('SELECT * FROM PUBLIC.TODOLIST;');
+        console.log(connectionPool);
+        console.log(sql);
+        var data = await connectionPool.query(sql)
         return data;
     }
     catch(err){
@@ -46,5 +47,13 @@ async function getData(){
 
 module.exports = {createPool,getPool,getData}
 
-
+// unit testing code
+// async function test(){
+//     var a = createPool(process.env.DATABASE_URL);
+//     console.log(process.env.DATABASE_URL);
+//     // console.log(a);
+//     // const data = await getData('SELECT * FROM PUBLIC.TODOLIST');
+//     // console.log(data.rows);
+// };
+// test();
 
