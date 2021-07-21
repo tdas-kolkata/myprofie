@@ -18,7 +18,7 @@ function createPool(connectionString){
     }
     //create new instance of the pool object
     try{
-        connection_pool = new Pool(pool_config);
+        connectionPool = new Pool(pool_config);
         return true;
     }
     catch(err){
@@ -34,7 +34,12 @@ async function getPool(){
     return connectionPool;
 };
 
-module.exports = {createPool,getPool}
+async function getData(){
+    var data = await connectionPool.query('SELECT * FROM PUBLIC.TODOLIST;');
+    return data;
+}
+
+module.exports = {createPool,getPool,getData}
 
 
 

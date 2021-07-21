@@ -1,4 +1,5 @@
-get https://5f01e2e49e41230016d42929.mockapi.io/products/1
+### local testing meeting end point
+get http://localhost:8000/meeting/all
 
 ###
 get https://5f01e2e49e41230016d42929.mockapi.io/products
