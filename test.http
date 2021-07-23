@@ -1,5 +1,5 @@
 ### local testing meeting end point
-get http://localhost:8000/meeting/all
+get http://localhost:8000/ping2
 
 ###
-https://tamal-app.herokuapp.com/meeting/all
+get https://tamal-app.herokuapp.com/meeting/all
