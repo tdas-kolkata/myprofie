@@ -1,16 +1,19 @@
 //meeting route
 const meetingRouter = require('express').Router();
-const {getData} = require('../Database/dataSource');
+const {getPool} = require('../Database/dataSource');
 
 
-const connStr = process.env.DATABASE_URL;
-// process.env.DATABASE_URL || "postgres://postgres:postgres@localhost:5433/Market";
 
 meetingRouter.get('/all',async(req,res)=>{
-    var {rows} = await getData(connStr,'SELECT * FROM PUBLIC.TODOLIST;');
-    console.log(rows);
+    try{
+        var pool = await getPool();
+    var {rowCount,rows} = await pool.query('SELECT * FROM PUBLIC.TODOLIST;');
+        res.json({rowCount,rows});
+    }catch(err){
+        console.log(err);
+        res.send('something went wrong');
+    }
     //get pull will get the pool object which we can use to execute the query
-    res.json(rows);
 });
 
 
