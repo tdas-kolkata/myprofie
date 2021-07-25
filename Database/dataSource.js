@@ -1,3 +1,5 @@
+"use strict";
+
 const {Client,Pool} = require('pg');
 
 var pool = null;

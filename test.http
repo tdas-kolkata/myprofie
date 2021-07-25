@@ -1,11 +1,44 @@
 ### local testing meeting end point
-get http://localhost:8000/ping2
+get http://localhost:8000/ping
+Content-Type: application/json
 
-###
-get https://tamal-app.herokuapp.com/ping2
+{
+    "sample key":"sample value"
+}
 
-###
-get https://tamal-app.herokuapp.com/meeting/all
 
-###
+### Test all connection
 get http://localhost:8000/meeting/all
+
+### get details of one todo (READ)
+get http://localhost:8000/meeting/details/3
+
+### delete a todo by its id (DELETE)
+DELETE http://localhost:8000/meeting/details/7
+
+### add a new todo (CREATE)
+POST http://localhost:8000/meeting/add
+Content-Type: application/json
+
+{
+      "meeting_sub": "MQC 13568 result call",
+      "host": "Kshitija",
+      "meeting_id": "1568964598",
+      "passcode": "15478",
+      "meeting_date": "2021-08-18",
+      "meeting_time": "10:07:00",
+      "user_id": "Tamal"
+}
+### Update a todo by its id (UPDATE)
+POST http://localhost:8000/meeting/update/12
+Content-Type: application/json
+
+{
+      "meeting_sub": "MQC 13568 result call",
+      "host": "test",
+      "meeting_id": "1568964598",
+      "passcode": "15478",
+      "meeting_date": "2021-08-18",
+      "meeting_time": "10:07:00",
+      "user_id": "Tamal"
+}
