@@ -1,82 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-		<title>CovidVaccine</title>
-	</head>
-	<body>
-		<!-- navbar start -->
-		<nav class="navbar navbar-dark bg-success">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#"><h5>Find Your Vaccination center</h5></a>
-				<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar_menu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<title>CovidVaccine</title>
+</head>
+
+<body>
+	<!-- navbar start -->
+	<nav class="navbar navbar-dark bg-success">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">
+				<h5>Find Your Vaccination center</h5>
+			</a>
+			<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar_menu">
 				<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbar_menu">
-					<ul class="navbar-nav d-flex flex-row justify-content-end">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">
-								<button class="btn btn-outline-light" onclick="openInNewWindow('https://tamal-app.herokuapp.com')">Know About the creator</button>
-							</a>
-						</li>
-					</ul>
+			</button>
+			<div class="collapse navbar-collapse" id="navbar_menu">
+				<ul class="navbar-nav d-flex flex-row justify-content-end">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">
+							<button class="btn btn-outline-light"
+								onclick="openInNewWindow('https://tamal-app.herokuapp.com')">Know About the
+								creator</button>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- navbar end -->
+	<!-- maincontainer start -->
+	<!-- input form start -->
+	<!-- gy-2 gx-3 align-items-center mt-1" -->
+	<div id="form_container" class="container-fluid flex-col-sm">
+		<form class="row mt-1 d-flex justify-content-center align-items-stretch" action="" method="">
+			<div class="col-lg-3 col-12 g-2 gx-0">
+				<label class="visually-hidden" for="pinCode">Pin_Code</label>
+				<div class="input-group container-fluid">
+					<div class="input-group-text">Pin Code</div>
+					<input type="text" class="form-control" id="pinCode" placeholder="i.e - 711101">
 				</div>
 			</div>
-		</nav>
-		<!-- navbar end -->
-		<!-- maincontainer start -->
-		<!-- input form start -->
-		<!-- gy-2 gx-3 align-items-center mt-1" -->
-		<div id="form_container" class="container-fluid flex-col-sm">
-			<form class="row mt-1 d-flex justify-content-center align-items-stretch" action="" method="">
-				<div class="col-lg-3 col-12 g-2 gx-0">
-					<label class="visually-hidden" for="pinCode">Pin_Code</label>
-					<div class="input-group container-fluid">
-						<div class="input-group-text">Pin Code</div>
-						<input type="text" class="form-control" id="pinCode" placeholder="i.e - 711101">
-					</div>
+			<div class="col-lg-3 col-12 g-2 gx-0">
+				<label class="visually-hidden" for="visitDate">Pin Code</label>
+				<div class="input-group">
+					<div class="input-group-text">Visit Date</div>
+					<input type="Date" class="form-control" id="visitDate">
 				</div>
-				<div class="col-lg-3 col-12 g-2 gx-0">
-					<label class="visually-hidden" for="visitDate">Pin Code</label>
-					<div class="input-group">
-						<div class="input-group-text">Visit Date</div>
-						<input type="Date" class="form-control" id="visitDate">
-					</div>
-				</div>
-				<div class="col-2 g-2 gx-0">
-					<button type="button" class="btn btn-sn btn-primary" onclick="getVaccineData()">Submit</button>
-				</div>
-			</form>
+			</div>
+			<div class="col-2 g-2 gx-0">
+				<button type="button" class="btn btn-sn btn-primary" onclick="getVaccineData()">Submit</button>
+			</div>
+		</form>
+	</div>
+	<!-- input form end -->
+	<!-- output area -->
+	<style>
+		#table_area {
+			height: 100vh;
+		}
+	</style>
+	<div id="output_area" class="container-fluid text-center mt-5">
+	</div>
+	<div id="table_area" class="overflow-auto mx-auto">
+		<table class="table table-bordered" id="orig_table">
+			<thead>
+				<th>Date</th>
+				<th>Name</th>
+				<th>Address</th>
+				<th>block_name</th>
+				<th>district_name</th>
+				<th>Fee Type</th>
+				<th>fee</th>
+				<th>available capacity dose 1</th>
+				<th>available capacity dose 2</th>
+				<th>available_capacity</th>
+				<th>min age limit</th>
+				<th>vaccine</th>
+				<th>slots</th>
+			</thead>
+			<tbody id="table_body">
+			</tbody>
+		</table>
+	</div>
+	<!-- maincontainer end -->
+	<footer class="footer mt-5 bg-secondary bottom-0 container-fluid">
+		<!--       <div class="container text-center">
+			  <span class="text-white">Designed and developed by Tamal Das</span>
+			  <p class="text-white text-muted">All Rights Reserved</p>
+			</div> -->
+		<div class="text-center">
+			<p class="text-white">Designed and developed by Tamal Das.All Rights Reserved</p>
+			<span class="text-white">© 2021 Copyright:</span>
+			<a class="text-white fw-bold" href="https://github.com/tdas-kolkata">Tamal Das</a>
 		</div>
-		<!-- input form end -->
-		<!-- output area -->
-		<div id="output_area" class="container-fluid text-center mt-5">
-		</div>
-		<div id="table_area" class=	"overflow-auto mx-auto">
-			<table class="table table-bordered" id="orig_table">
-				<thead>
-					<th>Date</th>
-					<th>Name</th>
-					<th>Address</th>
-					<th>block_name</th>
-					<th>district_name</th>
-					<th>Fee Type</th>
-					<th>fee</th>
-					<th>available capacity dose 1</th>
-					<th>available capacity dose 2</th>
-					<th>available_capacity</th>
-					<th>min age limit</th>
-					<th>vaccine</th>
-					<th>slots</th>
-				</thead>
-				<tbody id="table_body">
-				</tbody>
-			</table>
-		</div>
-		<!-- maincontainer end -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="./vaccine.js"></script>
-	</body>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript" src="./vaccine.js"></script>
+</body>
+
 </html>
