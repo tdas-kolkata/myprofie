@@ -24,6 +24,21 @@ const showVaccineData = function(raw_data,date_str){
 	var output_table = document.getElementById("table_body");
 	output.innerText = 'List of Centers';
 	output_table.innerText = '';
+	table_head_html = `<thead>
+	<th>Date</th>
+	<th>Name</th>
+	<th>Address</th>
+	<th>block_name</th>
+	<th>district_name</th>
+	<th>Fee Type</th>
+	<th>fee</th>
+	<th>available capacity dose 1</th>
+	<th>available capacity dose 2</th>
+	<th>available_capacity</th>
+	<th>min age limit</th>
+	<th>vaccine</th>
+	<th>slots</th>
+</thead>`
 	// output.innerText = JSON.stringify(data);
 	try
 	{
@@ -36,6 +51,7 @@ const showVaccineData = function(raw_data,date_str){
 		else{
 			// console.log('data',data);
 			let temp_str = '';
+			temp_str += table_head_html
 			data.forEach((d)=>{
 					temp_str += '<tr>'
 					temp_str += '<td>'+ '<span class="badge bg-success">'+ d.date + '</span>' + '</td>';
