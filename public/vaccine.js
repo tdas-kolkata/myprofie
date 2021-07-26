@@ -1,17 +1,21 @@
 const openInNewWindow = function(url){
 	window.open(url);
 }
+
 const getVaccineData = async function (){
 	let pincode = document.getElementById("pinCode").value;
 	let date = document.getElementById("visitDate").value.split('-');
+	let spinnerDiv = document.getElementById("spinner_div");
 	// let a = document.URL.split('/');
 	date_str = (date[2]+'-'+date[1]+'-'+date[0]).toString();
 	// console.log(date_str);
 	let home_url = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin' //a[0]+'//'+ a[2];
 	console.log(home_url);
+	spinnerDiv.classList.toggle("visually-hidden");
 	let res = await fetch(`${home_url}?pincode=${pincode}&date=${date_str}`);
 	// console.log(res);
 	let vaccineData = await res.json();
+	spinnerDiv.classList.toggle("visually-hidden");
 	// console.log(vaccineData);
 	showVaccineData(vaccineData,date_str);
 }
