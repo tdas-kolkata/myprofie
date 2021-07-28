@@ -1,0 +1,50 @@
+CREATE TABLE IF NOT EXISTS data.daily_price
+(
+    record_id serial NOT NULL,
+	date date NOT NULL,
+    open_price numeric(10, 2) NOT NULL,
+    close_price numeric(10, 2) NOT NULL,
+    high_price numeric(10, 2) NOT NULL,
+    low_price numeric(10, 2) NOT NULL,
+    volume integer NOT NULL,
+	symbol character varying(15) NOT NULL,
+    PRIMARY KEY (record_id)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE data.daily_price
+    OWNER to postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.todolist
+(
+    id serial NOT NULL,
+    meeting_sub character varying(255) NOT NULL,
+    host character varying(20) NOT NULL,
+    meeting_id character varying(15) NOT NULL,
+    passcode character varying(10) NOT NULL,
+    meeting_date date NOT NULL,
+    meeting_time time without time zone,
+    user_id character    varying(10),
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.todolist
+    OWNER to postgres;
+
+INSERT INTO public.todolist(
+    meeting_sub, host, meeting_id, passcode, meeting_date, meeting_time, user_id)
+    VALUES 
+    ('MQC 13596 result call', 'Sanika', '1586985236', '12569', TO_DATE('19-07-2021','DD-MM-YYYY'), '23:07:00', 'Tamal'),
+    ('MQC 13568 result call', 'Sanika', '1568964598', '12569', TO_DATE('19-07-2021','DD-MM-YYYY'), '23:07:00', 'Tamal'),
+    ('MQC 13457 result call', 'Sanika', '1568964598', '12569', TO_DATE('19-07-2021','DD-MM-YYYY'), '23:07:00', 'Tamal');
+
+select * from public.todolist;
+
+delete from public.todolist
+where id=8;
