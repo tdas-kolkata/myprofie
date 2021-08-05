@@ -50,7 +50,7 @@ app.get("/resume", async (req, res) => {
 app.use("/meeting", require("./Routes/meetingRouter"));
 
 app.get("*", async (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, "/public/not_found.html"));
+  res.status(404).sendFile(path.join(__dirname, "/public/not_found.html"));
 });
 
 app.listen(PORT, () => {
