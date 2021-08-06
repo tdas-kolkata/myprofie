@@ -42,3 +42,7 @@ Content-Type: application/json
       "meeting_time": "10:07:00",
       "user_id": "Tamal"
 }
+
+### get all risk analysis data
+GET http://localhost:8000/risk_analysis/api/all
+

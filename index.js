@@ -48,6 +48,7 @@ app.get("/resume", async (req, res) => {
 });
 
 app.use("/meeting", require("./Routes/meetingRouter"));
+app.use("/risk_analysis", require("./Routes/riskAnalysisRouter"));
 
 app.get("*", async (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "/public/not_found.html"));
