@@ -1,7 +1,14 @@
 const express = require("express");
+const path = require("path");
 
 const riskAnalysisRouter = express.Router();
 const { getPool } = require("../Database/dataSource");
+
+
+riskAnalysisRouter.get('/dashboard',(req,res)=>{
+  res.sendFile(path.join(__dirname , "../public/riskAnalysis.html"));
+})
+
 
 riskAnalysisRouter.get("/api/all", async (req, res) => {
   try {

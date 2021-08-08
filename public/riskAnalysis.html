@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Risk Analysis</title>
+    <link rel="shortcut icon" href="tamal.jpg" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"
+        integrity="sha512-asxKqQghC1oBShyhiBwA+YgotaSYKxGP1rcSYTDrB0U6DxwlJjU59B67U8+5/++uFjcuVM8Hh5cokLjZlhm3Vg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+        integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"
+        integrity="sha512-NxlWEbNbTV6acWnTsWRLIiwzOw0IwHQOYUCKBiu/NqZ+5jSy7gjMbpYI+/4KvaNuZ1qolbw+Vnd76pbIUYEG8g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container mb-5 ">
+        <h2>The Risk Return Scenario of Indian Equity Market</h2>
+        <div><b>Overview</b></div>
+        <div>
+            We have collected last 10 years daily price data for top 450 publicly traded indian companies
+            consisted of the indices NIFTY 50 , NIFTY Next 50 , NIFTY Midcap 100 , NIFTY Smallcap 250 and
+            performed the risk return analysis on the the one day rolling return . If we consider building our
+            portfolio with one single stock then the graph below projects the map of annualised expected return
+            and annualised portfolio variance (volatility) considering 250 business days in a year . If you follow
+            Modern Portfolio Theory (MPT) the plot will help you to identify the efficient frontier of the
+            entire indian equity market and Sharpe Ratio of individual securities in the equity market .
+        </div>
+        <div class="container text-center">
+            <button class="btn btn-success mt-3" onclick=chartIt()>Generate The Plot</button>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div id='dataLoader' class="d-flex justify-content-center visually-hidden">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="container mb-3">
+        <div><b>Note</b></div>
+        <div>
+            <ul>
+                <li>The sharpe ratio considers the risk free return as zero</li>
+                <li>
+                    Not all scecurities has 10 years of data some them are listed after 2011 in that case
+                    we are using the best data available to us .
+                </li>
+                <li>Get the sharpe ratio while hovering over the datapoints</li>
+                <li>The data is refreshed and risk return values are refreshed every month</li>
+            </ul>
+
+        </div>
+    </div>
+
+    <footer class="footer mt-5 bg-secondary bottom-0 container-fluid">
+        <!--       <div class="container text-center">
+			  <span class="text-white">Designed and developed by Tamal Das</span>
+			  <p class="text-white text-muted">All Rights Reserved</p>
+			</div> -->
+        <div class="text-center">
+            <p class="text-white">Designed and developed by Tamal Das.All Rights Reserved</p>
+            <span class="text-white">© 2021 Copyright:</span>
+            <a class="text-white fw-bold" href="https://github.com/tdas-kolkata">Tamal Das</a>
+            <div class="text-white fw-bold mt-2">Disclaimer</div>
+            <div class="text-white fw-bold mt-2">Investments in securities market are subject to market risk</div>
+            <div class="text-white">
+                This website is distributed for general informational and educational purposes only and is not intended
+                to
+                constitute legal, tax, accounting or investment advice. The information, opinions and views contained
+                herein
+                have not been tailored to the investment objectives of any one individual. All
+                investment strategies and investments involve risk of loss. Nothing contained in this website should be
+                construed as investment advice. Any reference to an investment’s past or potential performance is not,
+                and
+                should not be construed as, a recommendation or as a guarantee of any specific outcome or profit.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        //chartIt();
+        async function chartIt() {
+            document.getElementById('dataLoader').classList.toggle('visually-hidden');
+            let data = await getData();
+            document.getElementById('dataLoader').classList.toggle('visually-hidden');
+            const ctx = document.getElementById('myChart');
+            const myChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    //labels: risks,
+                    datasets: [{
+                        label: 'Risk-return',
+                        data: data,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.4)',
+                            'rgba(54, 162, 235, 0.4)',
+                            'rgba(255, 206, 86, 0.4)',
+                            'rgba(75, 192, 192, 0.4)',
+                            'rgba(153, 102, 255, 0.4)',
+                            'rgba(255, 159, 64, 0.4)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 0.7)',
+                            'rgba(54, 162, 235, 0.7)',
+                            'rgba(255, 206, 86, 0.7)',
+                            'rgba(75, 192, 192, 0.7)',
+                            'rgba(153, 102, 255, 0.7)',
+                            'rgba(255, 159, 64, 0.7)'
+                        ]
+                    }]
+                },
+                options: {
+
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title: ([context]) => {
+                                    return context.raw.symbol;
+                                },
+                                label: (context) => {
+                                    //console.log(context);
+                                    l = [];
+                                    l.push(`Sharpe Ratio : ${context.raw.sharpe_ratio.toFixed(2)}`);
+                                    l.push(`Return : ${context.raw.y.toFixed(2)}`);
+                                    l.push(`Risk : ${context.raw.x.toFixed(2)}`);
+                                    l.push(`Total Days : ${context.raw.total_days}`);
+                                    return l;
+                                }
+                            }
+                        },
+                        zoom: {
+                            zoom: {
+                                wheel: {
+                                    enabled: true,
+                                },
+                                pinch: {
+                                    enabled: true
+                                },
+                                mode: 'xy',
+                            },
+                            pan: {
+                                enabled: true,
+                                mode: 'xy',
+                            },
+                        },
+                        title: {
+                            display: true,
+                            text: 'Annualised Risk-return scenario indian Equity market based on last 10 years data'
+                        },
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        yAxes: {
+                            title: {
+                                display: true,
+                                text: 'Annualised Average Return',
+                                font: {
+                                    size: 15
+                                }
+                            }
+                        },
+                        xAxes: {
+                            title: {
+                                display: true,
+                                text: 'Annualised Risk (Standard Deviation)',
+                                font: {
+                                    size: 15
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        async function getData() {
+            try {
+                //let risks = [];
+                //let returns = [];
+                let arr = [];
+                let raw_data = await fetch('./api/all');
+                let data = await raw_data.json();
+                //console.log(data);
+                data.rows.forEach(row => {
+                    let temp = {};
+                    //console.log(row);
+                    //risks.push(row.risk_sd);
+                    //returns.push(row.avg_return);
+                    temp.x = row.risk_sd;
+                    temp.y = row.avg_return;
+                    temp.symbol = row.symbol;
+                    temp.sharpe_ratio = row.sharpe_ratio;
+                    temp.total_days = row.total_days;
+                    arr.push(temp);
+                })
+                return arr;
+            }
+            catch (error) {
+                console.log(error);
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
