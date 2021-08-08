@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Risk Analysis</title>
     <link rel="shortcut icon" href="tamal.jpg" type="image/x-icon">
@@ -22,8 +23,13 @@
 
 <body>
 
-    <div class="container mb-5 ">
-        <h2>The Risk Return Scenario of Indian Equity Market</h2>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <div class="navbar-text mb-0 h1">The Risk Return Scenario of Indian Equity Market</div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
         <div><b>Overview</b></div>
         <div>
             We have collected last 10 years daily price data for top 450 publicly traded indian companies
@@ -33,6 +39,7 @@
             and annualised portfolio variance (volatility) considering 250 business days in a year . If you follow
             Modern Portfolio Theory (MPT) the plot will help you to identify the efficient frontier of the
             entire indian equity market and Sharpe Ratio of individual securities in the equity market .
+            <b>The website is best viewed on desktop</b>
         </div>
         <div class="container text-center">
             <button class="btn btn-success mt-3" onclick=chartIt()>Generate The Plot</button>
@@ -170,18 +177,12 @@
                             title: {
                                 display: true,
                                 text: 'Annualised Expected Return',
-                                font: {
-                                    size: 15
-                                }
                             }
                         },
                         xAxes: {
                             title: {
                                 display: true,
                                 text: 'Annualised Risk (Standard Deviation)',
-                                font: {
-                                    size: 15
-                                }
                             }
                         }
                     }
