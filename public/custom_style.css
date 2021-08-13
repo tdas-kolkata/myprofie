@@ -127,6 +127,10 @@
   overflow: hidden;
 }
 
+#sketch_div {
+  overflow-x: hidden;
+}
+
 @keyframes typing {
   0% {
     width: 0ch;
