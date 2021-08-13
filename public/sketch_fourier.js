@@ -21,7 +21,7 @@ function draw() {
     let rad = 50 * (4 / (n * PI));
 
     x += rad * cos(n * t);
-    y += rad * sin(n * t);
+    y += rad * sin(-n * t);
 
     stroke(200);
     noFill();
