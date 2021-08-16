@@ -142,3 +142,15 @@
     border-right: 1px solid blue;
   }
 }
+
+#carousel1,
+#carousel2 {
+  margin-top: 20px;
+  width: 12rem;
+  height: 8rem;
+}
+
+.carousel-item > img {
+  min-width: 12rem;
+  min-height: 8rem;
+}
