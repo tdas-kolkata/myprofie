@@ -144,13 +144,16 @@
 }
 
 #carousel1,
-#carousel2 {
-  margin-top: 20px;
-  width: 12rem;
-  height: 8rem;
+#carousel2,
+#carousel3,
+#carousel4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 24rem;
+  height: 17rem;
 }
 
 .carousel-item > img {
-  min-width: 12rem;
-  min-height: 8rem;
+  min-width: 24rem;
+  min-height: 17rem;
 }
