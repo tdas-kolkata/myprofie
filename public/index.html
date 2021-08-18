@@ -429,6 +429,17 @@
         <p class="text-white">Designed and developed by Tamal Das.All Rights Reserved</p>
         <span class="text-white">© 2021 Copyright:</span>
         <a class="text-white fw-bold" href="https://github.com/tdas-kolkata">Tamal Das</a>
+        <div class="center text-white">Visitor Count - <span id="visCount">2</span></div>
+        <script>
+          let cntSpan = document.getElementById('visCount');
+          fetch('https://api.countapi.xyz/hit/tamal/profile')
+            .then(rawdata => {
+              rawdata.json().then(data => {
+                cntSpan.innerText = data.value;
+                console.log(data);
+              })
+            })
+        </script>
       </div>
       <div class="container py-3 d-flex justify-content-center">
         <!-- email -->
