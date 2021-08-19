@@ -110,7 +110,7 @@
 }
 
 .flip-card-front > div {
-  font-size: 0.75rem;
+  font-size: 0.79rem;
 }
 
 .flip-card-back {
@@ -158,4 +158,8 @@
 .carousel-item > img {
   min-width: 24rem;
   min-height: 17rem;
+}
+
+#personal_desc {
+  font-size: 0.93rem;
 }

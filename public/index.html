@@ -48,15 +48,23 @@
     <div class="row" id="introSkillContainer">
       <div id="introCard" class="col-md-6 col-xs-12 card shadow">
         <div class="row g-0">
-          <div class=" col-md-3 d-flex flex-row align-items-center justify-content-center">
+          <div class=" col-md-3 d-flex flex-column align-items-center justify-content-around">
             <img src="./tamal35mm.jpg" class="rounded-circle image-responsive " style="vertical-align: middle"
               alt="...">
+            <a href="#" class="text-decoration-none btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
+              CONTACT ME
+            </a>
           </div>
           <div class="col-md-9">
             <div class="card-body">
               <h5 class="card-title d-flex justify-content-start text-primary fs-3" id="hello_tamal">Hello I'm Tamal
               </h5>
-              <p class="card-text text-start fs-6">Full stack developer with 2+ years of experience actively looking for
+              <h6 class="card-subtitle mb-2 text-muted">Full Stack Development | Data Analysis & Visualisation | Indian
+                Equity & Securities Market Analyst </h6>
+              <p class="card-text text-start" id="personal_desc">Full stack developer with 2+ years of
+                experience actively looking
+                for
                 suitable position.
                 I have contributed to the development of different web applications for new start ups and small scale
                 businesses. I am also interested in
@@ -64,17 +72,6 @@
                 based on data analytics. Currently I am working with Tata Consultancy Services as a Quality Assurance
                 Analyst as part of a global risk analytics project under Banking Financial Services and Insurance (BFSI)
                 wing .
-              </p>
-              <p class="card-text d-flex justify-content-end align-bottom mt-2">
-                <a class="text-decoration-none btn btn-outline-danger btn-sm" href="/resume" target="_blank">RESUME</a>
-                <a class="text-decoration-none btn btn-outline-success mx-1 btn-sm"
-                  href="https://drive.google.com/file/d/1xa-oAXmLjjhi-RSmyjZKEDHPCzxsQobp/view?usp=sharing"
-                  target="_blank">ISTQB CERTIFICATE</a>
-                <a href="#" class="text-decoration-none btn btn-outline-primary btn-sm" data-bs-toggle="modal"
-                  data-bs-target="#exampleModal">
-                  CONTACT ME
-                </a>
-              </p>
             </div>
           </div>
         </div>
@@ -84,34 +81,46 @@
           Relevant Skillset
         </h3>
         <div class="card-text d-flex flex-row align-self-center flex-wrap ">
-          <div class="container-fluid m-1">Technical Skills :</div>
+          <div class="container p-0 m-0">Technical Skills :</div>
           <span class="badge badge-pill alert-primary border border-primary m-1">HTML</span>
           <span class="badge badge-pill alert-primary border border-primary m-1">CSS</span>
           <span class="badge badge-pill alert-primary border border-primary m-1">JavaScript</span>
           <span class="badge badge-pill alert-primary border border-primary m-1">Bootstrap</span>
-          <span class="badge badge-pill alert-primary border border-primary m-1">React</span>
+          <span class="badge badge-pill alert-primary border border-primary m-1">React.js</span>
           <span class="badge badge-pill alert-warning border border-warning m-1">Python</span>
           <span class="badge badge-pill alert-warning border border-warning m-1">Pandas</span>
           <span class="badge badge-pill alert-warning border border-warning m-1">Plotly</span>
           <span class="badge badge-pill alert-warning border border-warning m-1">Matplotlib</span>
           <span class="badge badge-pill alert-warning border border-warning m-1">Jupyter Notebook</span>
           <span class="badge badge-pill alert-warning border border-warning m-1">Node.js</span>
-          <span class="badge badge-pill alert-warning border border-warning m-1">Exrpess</span>
+          <span class="badge badge-pill alert-warning border border-warning m-1">Exrpess.js</span>
+          <span class="badge badge-pill alert-warning border border-warning m-1">Mongoose</span>
           <span class="badge badge-pill alert-success border border-success m-1">MySQL</span>
           <span class="badge badge-pill alert-success border border-success m-1">PostgreSQL</span>
           <span class="badge badge-pill alert-success border border-success m-1">SQLAlchemy</span>
           <span class="badge badge-pill alert-success border border-success m-1">Sybase</span>
-          <span class="badge badge-pill alert-secondary border border-secondary m-1">MS Excel</span>
           <span class="badge badge-pill alert-danger border border-secondary m-1">Git & GitHub</span>
           <span class="badge badge-pill alert-danger border border-secondary m-1">Atlasian JIRA</span>
+          <span class="badge badge-pill alert-secondary border border-secondary m-1">MS Excel Pivot</span>
           <div class="card-text d-flex flex-row align-self-center flex-wrap">
-            <div class="container-fluid m-1">Non-Technical Skills :</div>
+            <div class="container p-0 m-0">Analytical Skills :</div>
             <span class="badge badge-pill alert-primary border border-primary m-1">Regression Analysis</span>
             <span class="badge badge-pill alert-primary border border-primary m-1">Probability Distribution</span>
             <span class="badge badge-pill alert-warning border border-warning m-1">Fourier Analysis</span>
             <!-- <span class="badge badge-pill alert-success border border-success m-1">Portfolio Analysis</span> -->
           </div>
         </div>
+        </p>
+        <div class="card-text mb-2">
+          <div class="container p-0 m-0">Resume & Certificates :</div>
+          <div class="card-text d-flex justify-content-start align-bottom mt-2">
+            <a class="text-decoration-none btn btn-outline-danger btn-sm" href="/resume" target="_blank">RESUME</a>
+            <a class="text-decoration-none btn btn-outline-success mx-1 btn-sm"
+              href="https://drive.google.com/file/d/1xa-oAXmLjjhi-RSmyjZKEDHPCzxsQobp/view?usp=sharing"
+              target="_blank">ISTQB CERTIFICATE</a>
+          </div>
+        </div>
+
       </div>
     </div>
     <div id="sketch_div" class="m-3"></div>
@@ -206,10 +215,13 @@
               <div class="card-text collapse" id="tcsProjectDetails">
                 <p><b class="text-muted">Responsibility</b></p>
                 <hr>
-                Joined a global risk analytics tech team of a leading investment bank in TCS Kolkata as Assistant Syatem
-                Engineer (Trainee).I am also involved with the automation effort regarding the test analysis and report
+                Joined a global risk analytics tech team of a leading investment bank in TCS Kolkata as Assistant
+                Syatem
+                Engineer (Trainee).I am also involved with the automation effort regarding the test analysis and
+                report
                 generation using
                 python's data handling and plottting frameworks Pandas,scipy and matplotlib .
+
                 <br>
                 As Data Quality Assurance Analyst my job responsibility includes
                 <ul>
@@ -345,7 +357,7 @@
               </div>
               <div class="flip-card-back bg-light text-primary">
                 <a href="/risk_analysis/dashboard" target="_blank">
-                  <span>Risk return map of indianequitymarket</span>
+                  <span>Risk return map of Indian Eqity Market</span>
                 </a>
               </div>
             </div>
@@ -360,7 +372,21 @@
                 </div>
               </div>
               <div class="flip-card-back bg-light text-primary">
-                <a href="https://github.com/tdas-kolkata/IRISclassifier"><span>visit the GitHub</span></a>
+                <a href="https://github.com/tdas-kolkata/IRISclassifier" target="_blank"><span>visit the
+                    GitHub project</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card-container m-4">
+            <div class="flip-card-inner shadow">
+              <div class="flip-card-front bg-primary text-light">
+                <h5 class="border-bottom border-light pb-2">Sudoku Solver - JavaScript</h5>
+                <div>Created a front end soluton where user can select the sudoku grid size and give the input and the
+                  puzzled is solved using frontend javascript implementing the Backtrack Algorithm.</div>
+              </div>
+              <div class="flip-card-back bg-light text-primary">
+                <a href="https://github.com/tdas-kolkata/SUDOKU_GUI_SOLVER" target="_blank"><span>visit the
+                    GitHub project</span></a>
               </div>
             </div>
           </div>
