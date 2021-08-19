@@ -47,6 +47,12 @@ app.get("/resume", async (req, res) => {
     .sendFile(path.join(__dirname, "/public/Resume_Web_Dev_V1.pdf"));
 });
 
+app.get("/certificate/react", async (req, res) => {
+  res
+    .status(200)
+    .sendFile(path.join(__dirname, "/public/ReactCertificate.pdf"));
+});
+
 app.use("/meeting", require("./Routes/meetingRouter"));
 app.use("/risk_analysis", require("./Routes/riskAnalysisRouter"));
 
