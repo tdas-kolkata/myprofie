@@ -225,8 +225,8 @@
                 temp.symbol = row.symbol;
                 temp.sharpe_ratio = row.sharpe_ratio;
                 temp.total_days = row.total_days;
-                temp.start_dt = row.start_dt;
-                temp.end_dt = row.end_dt;
+                temp.start_dt = new Date(row.start_dt).toLocaleDateString();
+                temp.end_dt = new Date(row.end_dt).toLocaleDateString();
                 arr.push(temp);
             })
             return arr;
