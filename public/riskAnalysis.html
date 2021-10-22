@@ -160,6 +160,8 @@
                                 l.push(`Return : ${context.raw.y.toFixed(2)}`);
                                 l.push(`Risk : ${context.raw.x.toFixed(2)}`);
                                 l.push(`Total Days : ${context.raw.total_days}`);
+                                l.push(`Start Date : ${context.raw.start_dt}`);
+                                l.push(`End Date : ${context.raw.end_dt}`);
                                 return l;
                             }
                         }
@@ -223,6 +225,8 @@
                 temp.symbol = row.symbol;
                 temp.sharpe_ratio = row.sharpe_ratio;
                 temp.total_days = row.total_days;
+                temp.start_dt = row.start_dt;
+                temp.end_dt = row.end_dt;
                 arr.push(temp);
             })
             return arr;
