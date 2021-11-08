@@ -141,7 +141,8 @@
 }
 
 #sketch_div {
-  overflow-x: scroll;
+  overflow-x: auto;
+  width: 100%;
 }
 
 @keyframes typing {
