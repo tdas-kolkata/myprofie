@@ -5,24 +5,24 @@
   font-size: 0.93rem;
 }
 
-#my-logo > span {
+#my-logo>span {
   font-size: 1.5rem;
 }
 
 #introCard {
   position: relative;
-  animation: slideFromRight 2000ms ease;
+  /* animation: slideFromRight 2000ms ease; */
 }
 
 #skillContainer {
-  animation: slideFromLeft 2000ms ease;
+  /* animation: slideFromLeft 2000ms ease; */
 }
 
 #navBar {
-  animation: slideFromTop 1000ms linear;
+  /* animation: slideFromTop 1000ms linear; */
 }
 
-#navbar > .navbar-light .navbar-nav .nav-link:hover {
+#navbar>.navbar-light .navbar-nav .nav-link:hover {
   color: #273af0;
 }
 
@@ -118,9 +118,11 @@
   width: 100%;
   height: 100%;
   justify-content: top;
+  background: rgb(83, 109, 254) !important;
+
 }
 
-.flip-card-front > div {
+.flip-card-front>div {
   font-size: 0.79rem;
 }
 
@@ -166,11 +168,20 @@
   height: 17rem;
 }
 
-.carousel-item > img {
+.carousel-item>img {
   min-width: 24rem;
   min-height: 17rem;
 }
 
 #personal_desc {
   font-size: 0.93rem;
+}
+
+
+.footer-custom {
+  display: block;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 100%;
+  background: rgb(83, 109, 254);
 }
